@@ -1,9 +1,5 @@
 package com.example.entity;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
-import org.dom4j.tree.AbstractEntity;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,7 +17,10 @@ public class User extends AbsEntity {
     private String address;
 
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    private List<Orders> orders;
+
+    @OneToMany(mappedBy = "user")
+    private List<Product> products;
 
     public String getName() {
         return name;
@@ -39,19 +38,27 @@ public class User extends AbsEntity {
         this.password = password;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 }

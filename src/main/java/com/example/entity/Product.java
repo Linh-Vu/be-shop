@@ -17,11 +17,14 @@ public class Product extends AbsEntity {
 
     private String imageLink;
 
-    @ManyToMany(mappedBy = "product")
-    private List<Order> orders;
+    @ManyToOne
+    private User user;
 
     @ManyToOne
     private Vendor vendor;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Orders> orders;
 
     public String getName() {
         return name;
@@ -53,5 +56,29 @@ public class Product extends AbsEntity {
 
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
+    }
+
+    public Vendor getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 }
