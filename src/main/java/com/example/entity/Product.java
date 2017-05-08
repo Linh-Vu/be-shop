@@ -1,17 +1,13 @@
 package com.example.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by linhv on 5/5/2017.
  */
 @Entity
-public class Product {
-    @Id
-    @GeneratedValue
-    private long id;
+public class Product extends AbsEntity {
 
     private String name;
 
@@ -21,13 +17,11 @@ public class Product {
 
     private String imageLink;
 
-    public long getId() {
-        return id;
-    }
+    @ManyToMany(mappedBy = "product")
+    private List<Order> orders;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @ManyToOne
+    private Vendor vendor;
 
     public String getName() {
         return name;

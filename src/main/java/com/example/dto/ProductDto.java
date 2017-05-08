@@ -8,6 +8,15 @@ public class ProductDto {
     private String name;
     private String description;
     private long price;
+    private String vendorName;
+
+    public String getVendorName() {
+        return vendorName;
+    }
+
+    public void setVendorName(String vendorName) {
+        this.vendorName = vendorName;
+    }
 
     public long getId() {
         return id;
