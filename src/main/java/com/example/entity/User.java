@@ -16,6 +16,8 @@ public class User extends AbsEntity {
 
     private String address;
 
+    private String phoneNumber;
+
     @OneToMany(mappedBy = "user")
     private List<Orders> orders;
 
@@ -60,5 +62,13 @@ public class User extends AbsEntity {
 
     public void setOrders(List<Orders> orders) {
         this.orders = orders;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

@@ -3,9 +3,8 @@ package com.example.controller;
 import com.example.dto.UserDto;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +20,16 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET)
     public List<UserDto> getUsers() {
         return userService.getUsers();
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public void createUser(@RequestBody UserDto userDto){
+        userService.createUser(userDto);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateUser(@RequestParam(value = "phoneNumber", required = true) String phoneNumber,
+                           @PathVariable("id") Long id) {
+        userService.updateUser(phoneNumber, id);
     }
 }

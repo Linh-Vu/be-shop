@@ -25,7 +25,28 @@ public class UserServiceImpl implements UserService {
             UserDto userDto = new UserDto();
             userDto.setId(user.getId());
             userDto.setName(user.getName());
+            userDto.setPassword(user.getPassword());
             return userDto;
         }).collect(Collectors.toList());
     }
+
+    @Override
+    public void createUser(UserDto userDto) {
+        User user = new User();
+        user.setName(userDto.getName());
+        user.setPassword(userDto.getPassword());
+
+        userRepository.save(user);
+    }
+
+    @Override
+    public void updateUser(String phoneNumber, Long id) {
+        User user = userRepository.findOne(id);
+
+        user.setPhoneNumber(phoneNumber);
+
+        userRepository.save(user);
+    }
+
+
 }

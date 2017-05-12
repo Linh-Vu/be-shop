@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dto.CommentDto;
 import com.example.dto.UserDto;
 
 import java.util.List;
@@ -9,4 +10,10 @@ import java.util.List;
  */
 public interface UserService {
     List<UserDto> getUsers();
+
+    void createUser(UserDto userDto);
+
+    void updateUser(String phoneNumber, Long id);
+
+
 }
