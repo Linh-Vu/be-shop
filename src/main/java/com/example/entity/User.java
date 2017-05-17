@@ -19,6 +19,9 @@ public class User extends AbsEntity {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
+
+    @OneToMany(mappedBy = "user")
     private List<Orders> orders;
 
     @OneToMany(mappedBy = "user")
@@ -70,5 +73,13 @@ public class User extends AbsEntity {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

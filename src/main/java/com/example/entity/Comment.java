@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /**
  * Created by Nguyen Ba Trinh on 5/9/2017.
@@ -9,6 +10,9 @@ import javax.persistence.Entity;
 public class Comment extends AbsEntity {
 
     private String comment;
+
+    @ManyToOne
+    private User user;
 
     public String getComment() {
         return comment;
