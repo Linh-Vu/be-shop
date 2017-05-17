@@ -5,10 +5,7 @@ import com.example.dto.UserDto;
 import com.example.service.CommentService;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,6 +28,11 @@ public class CommentController {
         commentService.createComment(commentDto);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updatateComment(@RequestParam (value = "comment", required = true)String comment,
+                                @PathVariable("id")Long id){
+        commentService.updateComment(comment, id);
+    }
 
 
 

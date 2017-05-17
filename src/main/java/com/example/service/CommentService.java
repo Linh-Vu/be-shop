@@ -14,4 +14,6 @@ public interface CommentService {
     List<CommentDto> getComment();
 
     void createComment(CommentDto commentDto);
+
+    void updateComment(String comment, Long id);
 }
